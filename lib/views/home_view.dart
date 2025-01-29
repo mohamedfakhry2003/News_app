@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/category.dart';
 import 'package:news_app/widgets/categories_list.dart';
+import 'package:news_app/widgets/news_list.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
@@ -34,8 +35,13 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
-      body: CategoriesList(categories: categories),
+      body: Column(
+        children: [
+          CategoriesList(categories: categories),
+          const SizedBox(height: 10),
+          Expanded(child: NewsList(pics: categories))
+        ],
+      ),
     );
   }
 }
-
